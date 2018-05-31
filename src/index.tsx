@@ -178,7 +178,7 @@ export abstract class BaseCachedImage<P extends CachedImageProps> extends Compon
         const props: any = {};
         Object.keys(this.props).forEach(prop => {
             if (prop === "source" && (this.props as any).source.uri) {
-                props["source"] = this.state.path ? {uri: FILE_PREFIX + this.state.path} : {};
+                props["source"] = this.state.path ? {uri: FILE_PREFIX + this.state.path} : { uri: '__loading__'};
             } else if (["mutable", "component"].indexOf(prop) === -1) {
                 props[prop] = (this.props as any)[prop];
             }
